@@ -12,8 +12,10 @@ Example:
     obj2.test; // => 1
 */
 
+var a = {}
+
 var Singleton = function() {
-    return obj = {}
+    return a;
   };
 
 // Test cases
