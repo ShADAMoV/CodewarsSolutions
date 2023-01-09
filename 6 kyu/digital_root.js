@@ -11,6 +11,6 @@ Examples
 */
 
 function digitalRoot(n) {
-  let sum = n.toString().split('').reduce((acum, item) => acum += +item, 0);
+  let sum = n.toString().split('').reduce((acum, item) => acum + +item, 0);
   return sum >= 10 ? digitalRoot(sum) : sum;
 }
