@@ -10,9 +10,7 @@ Examples
 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
 */
 
-function digital_root(n) {
-  if (n < 10) return n;
-  
-  return digital_root(
-    n.toString().split('').reduce(function(sum, item) { return sum + +item; }, 0));
+function digitalRoot(n) {
+  let sum = n.toString().split('').reduce((acum, item) => acum += +item, 0);
+  return sum >= 10 ? digitalRoot(sum) : sum;
 }
