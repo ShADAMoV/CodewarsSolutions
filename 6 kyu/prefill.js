@@ -10,30 +10,18 @@ You have to validate input:
     When throwing a TypeError, the message should be n is invalid, where you replace n for the actual value passed to the function.
 */
 
-function prefill(n, v) {
+function prefill(n, v = undefined) {
     let arr = [];
 
-    if (+n === 0) {
+    if (n == 0 && typeof(n) !== 'boolean') {
         return arr;
     }
 
-    try {
-        if ((Number.isInteger(+n)) && (Number.isFinite(n)) && (n > 0) && (typeof(n) !== 'boolean')) {
-            arr = new Array(n)
-
-            for (let i = 0; i < arr.length; i++) {
-                arr[i] = v;
-            }
-            
-            return arr;
-        } else {
-            throw new TypeError(`${n} is invalid`)
-        }
-    } catch (e) {
-        return e.message;
+    if (Number.isInteger(+n) && +n > 0 && typeof(n) !== 'boolean') {
+      return new Array(n).fill(v);
+    } else {
+      throw new TypeError(`${n} is invalid`);
     }
-
-    
 }
 
 // Test cases
